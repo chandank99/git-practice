@@ -27,5 +27,10 @@ jobs:
     steps:
       - name: Deploy the app
         run: echo "Deploying the application."
+  Static-Code-Analysic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Linting the code
+        run : echo "Scanning the code."
         
   
