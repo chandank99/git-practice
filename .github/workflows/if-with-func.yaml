@@ -11,7 +11,7 @@ jobs:
         if: startsWith(github.ref_name, 'feature') && github.event_name == 'push'
         steps:
         - name: Peroform code quality
-          run: echo "Perforing the quality checks on the code."
+          run: "Perforing the quality checks on the code."
     dev_deploy:
         runs-on: ubuntu-latest
         if: github.ref_name == 'develop' && github.event_name == 'push'
