@@ -30,13 +30,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: notify success
-              run: "Successful, sending notification"
+              run: echo "Successful, sending notification"
     Failed_notify:
         needs: ['quality_checks', 'dev_deploy', 'prod_deploy' ]
         if: always() && !failure()
         runs-on: ubuntu-latest
         steps:
             - name: notify success
-              run: "Successful, sending notification"
+              run: echo "Successful, sending notification"
 
 
