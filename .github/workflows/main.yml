@@ -1,8 +1,31 @@
 name: My CICD wWorkflow
-on: push
+on:
+  push:
+    branches:
+      - main
+      - hotfix-branch
+  pull_request:
+    types:
+      - opened
+      - synchronize
 jobs:
   Checkout:
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     steps:
       - name: Checkout the code
-        run: echo "Checkout the code"
+        run: echo "Checkout the code."
+  Build:
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'main' && github.event_name == 'push'
+    steps:
+      - name:  Building the app
+        run: echo "Building the application."
+  Deploy:
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'bug-fix' && github.event == 'push'
+    steps:
+      - name: Deploy the app
+        run: echo "Deploying the application."
+        
+  
