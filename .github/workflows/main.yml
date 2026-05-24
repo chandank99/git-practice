@@ -1,0 +1,8 @@
+name: My CICD wWorkflow
+on: workflow_dispatch
+jobs:
+  Checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        run: echo "Checkout the code"
