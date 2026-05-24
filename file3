@@ -2,4 +2,10 @@ hi this is file 3
 
 add another line
 another line
+<<<<<<< HEAD
 add another line while in main
+=======
+
+Footer line added > Footer
+Header
+>>>>>>> bug-fix
