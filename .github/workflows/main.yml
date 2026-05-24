@@ -1,5 +1,5 @@
 name: My CICD wWorkflow
-on: workflow_dispatch
+on: push
 jobs:
   Checkout:
     runs-on: ubuntu-latest
