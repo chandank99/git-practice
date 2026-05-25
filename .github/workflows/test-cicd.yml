@@ -1,0 +1,36 @@
+name: Test CI CD Pipeline
+on:
+    push:
+        branches:
+            - main
+            - develop
+            - feature
+jobs:
+    Test:
+        runs-on : ubuntu-latest
+        if: github.ref_name == 'main' && github.event_name == 'pull_request'
+        steps:
+            - name: Test Code
+              run : echo "Testing the code"
+    Build:
+        runs-on: ubuntu-latest
+        if: github.ref_name == 'feature/if-example' && github.event_name == 'push'
+        steps:
+            - name: Build the App
+              run : echo "Building the application"
+    success_notify:
+        runs-on: ubuntu-latest
+        needs: ['Test', 'Build']
+        if: always() && !failure()
+        steps:
+            - name: notify on success
+              run: echo " Success, sending notification"
+    failed_notify:
+        runs-on: ubuntu-latest
+        if: failure()
+        needs: ['Test', 'Build']
+        steps:
+            - name: notify on failure
+              run: echo " Failed, sending notification"
+        
+        
